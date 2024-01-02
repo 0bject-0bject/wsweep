@@ -61,10 +61,8 @@ fn check_and_delete(path: PathBuf, dry_run: bool) -> io::Result<()> {
 /// Recursively scans the given directory for files and directories that can be deleted, and sends them to the given `Sender`.
 fn scan_directory_worker(path: PathBuf, tx: Sender<PathBuf>, verbose: bool) {
     let deletable_files = vec![
-        "package-lock.json",
-        "yarn.lock",
-        "cargo.lock",
     ];
+    
     let deletable_dirs = vec![
         "node_modules",
         "target",
